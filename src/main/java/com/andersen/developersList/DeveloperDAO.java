@@ -47,7 +47,7 @@ class DeveloperDAO {
 
             if (developer.getId() != globalID)
                 globalID = developer.getId();
-            String value = developer.toString();
+            String value = developer.toString() + "\n";
             fileBuffered.write(value);
 
         } catch (IOException e) {
@@ -478,14 +478,13 @@ class DeveloperDAO {
                 System.out.print("Second name: ");
                 String secondNameToUp = reader.readLine();
 
-                arrString = currentLine.split(" ");
+                arrString = currentLine != null ? currentLine.split(" ") : new String[]{ String.valueOf(++globalID) };
 
                 update(new Developer(firstNameToUp, secondNameToUp, Math.round(Double.valueOf(arrString[0]))));
 
             } catch (IOException eio) {
                 System.err.println("The exception of IO, the entry failed. Try again.");
             }
-
         }
     }
 }

@@ -1,2 +1,4 @@
 .idea
 DeveloperList.iml
+*.class
+Developers.txt
